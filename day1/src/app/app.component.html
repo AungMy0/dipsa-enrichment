@@ -1,0 +1,50 @@
+<h1>My Pictures</h1>
+
+<h2>Add Inventory</h2>
+
+<form (ngSubmit)="processForm()" #inventoryForm="ngForm">
+    valid = {{ inventoryForm.valid }}
+    invalid = {{ inventoryForm.invalid }}
+    <table>
+        <tr>
+            <td>Product Id</td>
+            <td> <input type="number" name="prodId" ngModel required> </td>
+        </tr>
+        <tr>
+            <td>URL</td>
+            <td> <input type="text" name="imageURL" ngModel required> </td>
+        </tr>
+        <tr>
+            <td>Comment</td>
+            <td> <input type="text" name="comment" ngModel> </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" [disabled]="inventoryForm.invalid">
+                    Add
+                </button>
+            </td>
+        </tr>
+    </table>
+
+</form>
+
+<h2 *ngIf="cart.length <= 0">
+    Your cart is empty
+</h2>
+
+<div *ngIf="cart.length > 0">
+    <h2>My Cart</h2>
+    <ul>
+        <li *ngFor="let c of cart; let i = index">{{ c }}
+            <button type="button" (click)="deleteItem(i, c.prodId)">
+                Delete
+            </button>
+        </li>
+    </ul>
+</div>
+
+<app-pictures *ngFor="let p of pictures" 
+    [picture]="p" (productSelected)="addToCart($event)">
+</app-pictures>
