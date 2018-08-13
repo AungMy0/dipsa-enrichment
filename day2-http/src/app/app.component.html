@@ -1,0 +1,19 @@
+
+<h2>Yet Another Weather App</h2>
+
+<form #form="ngForm" (ngSubmit)="processForm()">
+
+  URL: <input type="text" name="cityName" placeholder="Please enter a city name" ngModel>
+
+  <button type="submit">Get</button>
+
+</form>
+
+<div *ngFor="let w of weather">
+  <h3>{{ w.main }}</h3>
+  <h5>
+    <img src="http://openweathermap.org/img/w/{{w.icon}}.png" alt="">
+    {{ w.description }}
+  </h5>
+
+</div>

@@ -18,16 +18,21 @@ export class AddressService {
         return (this.db['addresses'].orderBy('name').toArray());
     }
 
+    /*
+
+
+
+    */
+
     saveAddress(address: Address): Promise<any> {
-        return (
-            this.db['addresses'].put(address)
+        let  promise =  this.db['addresses'].put(address)
                 .then(() => {
                     return ({ status: true, message: 'Saved' } );
                 })
                 .catch((err) => {
                     return ({ status: false, message: err } );
                 })
-        );
+        return (promise);
 
         //return (this.db['addresses'].put(address));
     }
