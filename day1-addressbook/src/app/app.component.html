@@ -1,0 +1,7 @@
+<h1>My Address Book</h1>
+
+<app-address-entry (newAddress)="processAddress($event)"></app-address-entry>
+
+<app-address *ngFor="let a of addresses" 
+    [address]="a" (deleteAddress)="delete($event)">
+</app-address>
