@@ -1,0 +1,15 @@
+<h2>{{ film?.title }}</h2>
+
+<h5>Description</h5>
+<p>{{ film?.description }}</p>
+
+<h5>Special features</h5>
+<p>{{ film?.specialFeatures }}</p>
+
+<h5>Miscellaneous</h5>
+<div>
+  Release year: {{ film?.releaseYear }} <br>
+  Rating: {{ film?.rating }} <br>
+</div>
+
+<button type="button" (click)="back()">Back</button>

@@ -12,7 +12,7 @@ export class WeatherService {
 
     constructor(private http: HttpClient) { }
 
-    getWeather(city='singapore') {
+    getWeather(city = 'singapore') {
         //method chaining
         const qs = new HttpParams()
             .set('q', city)
@@ -21,7 +21,7 @@ export class WeatherService {
 
         return (
             this.http.get<WeatherData[]>('http://api.openweathermap.org/data/2.5/weather'
-                    , { params: qs })
+                , { params: qs })
                 .toPromise()
                 .then((data) => {
                     const w: WeatherData[] = [];
