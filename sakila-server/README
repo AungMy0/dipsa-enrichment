@@ -1,0 +1,1 @@
+Does not work with Angular client. Angular client requires the result to be in a certain format. See sakila.service.ts file
