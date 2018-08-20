@@ -15,8 +15,8 @@ export interface FilmDetail {
   specialFeatures: string;
 }
 
-const FILMS = "http://localhost:8080/day3web/films";
-const DETAILS = "http://localhost:8080/day3web/film/";
+const FILMS = "films";
+const DETAILS = "film/";
 
 @Injectable()
 export class SakilaService {
